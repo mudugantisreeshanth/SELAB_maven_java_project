@@ -1,1 +1,84 @@
-hello sir,this is sreeshanth
+                                                                
+--------------------------------------------------------------
+|                         Patient                            |
+--------------------------------------------------------------
+| - patientID: int                                            |
+| - name: string                                              |
+| - dateOfBirth: Date                                         |
+| - address: string                                           |
+| - phoneNumber: string                                       |
+--------------------------------------------------------------
+| + registerPatient(): void                                   |
+| + updatePatientInfo(): void                                 |
+| + viewMedicalHistory(): string                              |
+--------------------------------------------------------------
+                          |                                 
+                          |                                 
+                          | 1                               
+                          |                                 
+                          V                                 
+--------------------------------------------------------------                  
+|                         Appointment                        |
+--------------------------------------------------------------
+| - appointmentID: int                                        |
+| - date: Date                                                |
+| - time: Time                                                |
+| - doctor: Doctor                                            |
+| - patient: Patient                                          |
+| - status: string (Scheduled/Completed/Cancelled)            |
+--------------------------------------------------------------
+| + createAppointment(): void                                 |
+| + cancelAppointment(): void                                 |
+| + rescheduleAppointment(): void                             |
+--------------------------------------------------------------
+                          | 
+                          | 1..*
+                          |
+                          V
+--------------------------------------------------------------
+|                         Doctor                             |
+--------------------------------------------------------------
+| - doctorID: int                                             |
+| - name: string                                              |
+| - specialty: string                                         |
+| - phoneNumber: string                                       |
+--------------------------------------------------------------
+| + assignAppointment(): void                                 |
+| + updateDoctorInfo(): void                                  |
+| + provideTreatment(): void                                  |
+--------------------------------------------------------------
+                          | 
+                          | 1..*
+                          |                                 
+                          V
+--------------------------------------------------------------
+|                         Prescription                       |
+--------------------------------------------------------------
+| - prescriptionID: int                                       |
+| - dateIssued: Date                                          |
+| - doctor: Doctor                                            |
+| - patient: Patient                                          |
+| - medicationList: List<Medication>                          |
+| - instructions: string                                      |
+--------------------------------------------------------------
+| + createPrescription(): void                                |
+| + updatePrescription(): void                                |
+| + viewPrescription(): string                                |
+--------------------------------------------------------------
+                          | 
+                          | 1..*                             
+                          |                                 
+                          V
+--------------------------------------------------------------
+|                         Billing                            |
+--------------------------------------------------------------
+| - billID: int                                               |
+| - amount: float                                             |
+| - date: Date                                                |
+| - patient: Patient                                          |
+| - status: string (Paid/Unpaid)                              |
+--------------------------------------------------------------
+| + generateBill(): void                                      |
+| + viewBillDetails(): string                                 |
+| + processPayment(): void                                    |
+--------------------------------------------------------------
